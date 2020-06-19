@@ -88,14 +88,11 @@ public class b_add extends JFrame implements ActionListener{
 		add(button_add);
 	}
 	
-	void wypisz()
+	void wypisz() //do testowania
 	{
 		for(int i = 0; i< To_do.list_el.size(); i++)
 		{
-			System.out.println(To_do.list_el.get(i).name +" ");
-			System.out.println(To_do.list_el.get(i).date +" ");
-			System.out.println(To_do.list_el.get(i).interval +" ");
-			System.out.println(To_do.list_el.get(i).type +" ");
+			System.out.println(To_do.list_el.get(i).name +" "+ To_do.list_el.get(i).date +" "+ To_do.list_el.get(i).interval + " "+To_do.list_el.get(i).type);
 			
 		}
 			
@@ -120,19 +117,12 @@ public class b_add extends JFrame implements ActionListener{
 			if(x == "event")
 				d = 1;
 			
-		/*	
-			System.out.println(a);
-			System.out.println(b);
-			System.out.println(c);
-			System.out.println(d); 
-		*/	
-			
 			To_do_element new_element = new To_do_element(a, b, c, d);
 			
-			wypisz();
+			To_do tmp = new To_do(); //zobaczymy czy dobrze
+			tmp.add_task(new_element);
 			
-			//add_task(new_element);
-			
+			wypisz(); //do testowania
 			dispose();
 		}
 		
