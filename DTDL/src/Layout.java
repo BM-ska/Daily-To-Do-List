@@ -17,17 +17,27 @@ public class Layout extends JFrame implements ActionListener{
 		setTitle("DTDL");
 		setLayout(null);
 		
+		//menubar
+		Menubar menu = new Menubar();
+		setJMenuBar(menu);  
+		
 		//buttons
 		JButton button_add = new JButton("+");
-		button_add.setBounds(920, 500, 50, 50);
+		button_add.setBounds(910, 470, 50, 50);
 		add(button_add);
 		button_add.addActionListener(this);
 		
-		//list
+		//other
 		To_do list = new To_do ();
-		add(list);
+		add(list.list1);
+		add(list.list2);
 		
-		//board
+		
+		list.add_task (new To_do_element("nazwa", "1", 2, 3) ); //test
+		list.add_task (new To_do_element("nazwa2", "2", 3, 4) ); //test
+		list.add_task (new To_do_element("nazwa3", "1", 1 , 3) ); //test
+		
+
 		
 		//date
 		
@@ -35,9 +45,9 @@ public class Layout extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e)
 	{
 		b_add x = new b_add();
-		x.setLocationRelativeTo(null);
-		x.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 		x.setVisible(true);
+		x.new_b_add.setLocationRelativeTo(null);
+		x.new_b_add.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 		x.new_b_add.setVisible(true);
 	}
 	
 	public static void main(String[] args)
@@ -47,9 +57,9 @@ public class Layout extends JFrame implements ActionListener{
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		win.setVisible(true);
  		
- 	
  		
-		
+ 		
+ 		
 		
 	}
 	

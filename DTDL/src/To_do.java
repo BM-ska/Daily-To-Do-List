@@ -4,36 +4,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class To_do extends JPanel{
+public class To_do {
 	
-	int y = 50;
-	static ArrayList <To_do_element> list_el = new ArrayList <To_do_element> ();
-	static ArrayList <JLabel> list_el_name = new ArrayList <JLabel> ();
+	JPanel list1;
+	JPanel list2;
+	
+	
+	
+	List <To_do_element> task_list;
+	ArrayList <b_task> button_list;
+	ArrayList <Board> board_list;
 	
 	public To_do()
 	{	
-		this.setBounds(10, 10, 150, 450);
-		this.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		this.setLayout(null);
+		task_list = new ArrayList <To_do_element>(10);
+		button_list = new ArrayList <b_task>();
+		board_list = new ArrayList <Board>();
+		
+		list1 = new JPanel();
+		list1.setBounds(10, 10, 150, 450);
+		list1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+		list1.setLayout(null);
+		
+		list2 = new JPanel();
+		list2.setBounds(170, 10, 740, 450);
+		list2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+		list2.setLayout(null);
 		
 	}
 	
 	void add_task (To_do_element task)
 	{
-		list_el.add(task);
+		//button
+		button_list.add(new b_task(task));
 		
-		JLabel task_label = new JLabel(task.name);
-		task_label.setBounds(20, y , 100, 20);
-		y += 20;
-		//stworz boarda dla board(task); i akcje po nacisnieciu task label
 		
-		list_el_name.add(task_label);
-		add(list_el_name.get(list_el_name.size()-1));
+		list1.add(button_list.get(button_list.size()-1).b);
 		
+		//board
+		board_list.add(new Board (task));
+		
+		for(int i = 0; i<100; i++)
+		{
+			list2.add(board_list.get(board_list.size()-1).tab[i]);
+		}
+		
+		
+		//task
+		task_list.add(task);		
 		
 		
 	}

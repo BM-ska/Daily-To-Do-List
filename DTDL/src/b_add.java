@@ -12,7 +12,9 @@ import javax.swing.JTextField;
 
 import javax.swing.JFormattedTextField.AbstractFormatter;
 
-public class b_add extends JFrame implements ActionListener{
+public class b_add extends To_do implements ActionListener{
+	JFrame new_b_add;
+	
 	JTextField text_name;
 	JTextField text_interval;
 	JComboBox type;
@@ -21,11 +23,12 @@ public class b_add extends JFrame implements ActionListener{
 	
 	public b_add()
 	{
+		new_b_add = new JFrame();
 		
 		//window
-		setSize(240,335);
-		setTitle("add element");
-		setLayout(null);
+		new_b_add.setSize(240,335);
+		new_b_add.setTitle("add element");
+		new_b_add.setLayout(null);
 		
 		//panele
 		JPanel p_name = new JPanel();
@@ -35,7 +38,6 @@ public class b_add extends JFrame implements ActionListener{
 		
 		//name
 		p_name.setBounds(10, 10, 200, 50);
-	//	p_name.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		p_name.setBorder(BorderFactory.createTitledBorder("Name:"));
 		p_name.setLayout(null);
 		
@@ -45,7 +47,6 @@ public class b_add extends JFrame implements ActionListener{
 		
 		//date
 		p_date.setBounds(10, 65, 200, 50);
-	//	p_date.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		p_date.setBorder(BorderFactory.createTitledBorder("Date:"));
 		p_date.setLayout(null);
 		
@@ -53,18 +54,16 @@ public class b_add extends JFrame implements ActionListener{
 	
 		//interval
 		p_interval.setBounds(10, 120, 200, 50);
-	//	p_interval.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		p_interval.setBorder(BorderFactory.createTitledBorder("Interval:"));
 		p_interval.setLayout(null);
 		
 		text_interval = new JTextField("");
 		text_interval.setBounds(18, 135, 185, 30);                                                          
-		add(text_interval);
+		new_b_add.add(text_interval);
 //!!		
 		
 		//type
 		p_type.setBounds(10, 175, 200, 50);
-	//	p_type.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		p_type.setBorder(BorderFactory.createTitledBorder("Type:"));
 		p_type.setLayout(null);
 		
@@ -73,7 +72,7 @@ public class b_add extends JFrame implements ActionListener{
 		type.setBounds(18, 190, 185, 30);
 		type.addActionListener(this);
 //!!!		
-		add(type);
+		new_b_add.add(type);
 		
 		//add
 		button_add = new JButton("add");
@@ -81,19 +80,18 @@ public class b_add extends JFrame implements ActionListener{
 		button_add.addActionListener(this);
 		
 		
-		add(p_name);
-		add(p_date);
-		add(p_interval);
-		add(p_type);
-		add(button_add);
+		new_b_add.add(p_name);
+		new_b_add.add(p_date);
+		new_b_add.add(p_interval);
+		new_b_add.add(p_type);
+		new_b_add.add(button_add);
 	}
 	
 	void wypisz() //do testowania
 	{
-		for(int i = 0; i< To_do.list_el.size(); i++)
+		for(int i = 0; i < task_list.size(); i++)
 		{
-			System.out.println(To_do.list_el.get(i).name +" "+ To_do.list_el.get(i).date +" "+ To_do.list_el.get(i).interval + " "+To_do.list_el.get(i).type);
-			
+			System.out.println(task_list.get(i).name +" "+ task_list.get(i).date +" "+ task_list.get(i).interval + " "+task_list.get(i).type);
 		}
 			
 		
@@ -119,11 +117,12 @@ public class b_add extends JFrame implements ActionListener{
 			
 			To_do_element new_element = new To_do_element(a, b, c, d);
 			
-			To_do tmp = new To_do(); //zobaczymy czy dobrze
-			tmp.add_task(new_element);
 			
-			wypisz(); //do testowania
-			dispose();
+			add_task(new_element);
+			
+		//	wypisz(); //do testowania
+			new_b_add.dispose();
+		//	System.out.println(task_list.size()); // test
 		}
 		
 		

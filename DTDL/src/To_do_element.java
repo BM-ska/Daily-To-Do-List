@@ -13,3 +13,24 @@ public class To_do_element{
 		type = d;
 	}
 }
+
+
+/*
+napraw b_add
+po klikniecu button_list uzycie b add
+klikanie na eventy zliczanie
+
+procenty
+daty
+zrob wyglad
+brak powiekszania ekranu
+suwaki
+zapisywnie
+menubar
+inne opcje
+
+
+
+
+
+*/
