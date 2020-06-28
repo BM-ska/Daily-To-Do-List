@@ -12,17 +12,21 @@ import javax.swing.JTextField;
 
 import javax.swing.JFormattedTextField.AbstractFormatter;
 
-public class b_add extends To_do implements ActionListener{
+public class b_add implements ActionListener{
 	JFrame new_b_add;
 	
 	JTextField text_name;
 	JTextField text_interval;
 	JComboBox type;
 	JButton button_add;
+	
+	To_do to_do;
 
 	
-	public b_add()
+	public b_add(To_do to_do)
 	{
+		this.to_do = to_do;
+		
 		new_b_add = new JFrame();
 		
 		//window
@@ -89,9 +93,9 @@ public class b_add extends To_do implements ActionListener{
 	
 	void wypisz() //do testowania
 	{
-		for(int i = 0; i < task_list.size(); i++)
+		for(int i = 0; i < to_do.task_list.size(); i++)
 		{
-			System.out.println(task_list.get(i).name +" "+ task_list.get(i).date +" "+ task_list.get(i).interval + " "+task_list.get(i).type);
+			System.out.println(to_do.task_list.get(i).name +" "+ to_do.task_list.get(i).date +" "+ to_do.task_list.get(i).interval + " "+to_do.task_list.get(i).type);
 		}
 			
 		
@@ -118,11 +122,11 @@ public class b_add extends To_do implements ActionListener{
 			To_do_element new_element = new To_do_element(a, b, c, d);
 			
 			
-			add_task(new_element);
+			to_do.add_task(new_element);
 			
 		//	wypisz(); //do testowania
 			new_b_add.dispose();
-		//	System.out.println(task_list.size()); // test
+		//	System.out.println(to_do.task_list.size()); // test
 		}
 		
 		

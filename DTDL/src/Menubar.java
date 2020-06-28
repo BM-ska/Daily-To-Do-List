@@ -7,6 +7,8 @@ import javax.swing.JMenuItem;
 
 public class Menubar extends JMenuBar{
 
+	To_do to_do;
+	
 	JMenu File;
 	JMenu Element;
 	JMenu Help;
@@ -16,8 +18,10 @@ public class Menubar extends JMenuBar{
 	JMenuItem Close;
 	
 	
-	public Menubar()
+	public Menubar(To_do to_do)
 	{
+		this.to_do = to_do;
+		
 		 File = new JMenu("File");
 		 Element = new JMenu("Element");
 		 Help = new JMenu("Help");
@@ -45,7 +49,7 @@ public class Menubar extends JMenuBar{
 		}
 		if(e.getSource() == Add)
 		{
-			b_add x = new b_add();
+			b_add x = new b_add(to_do);
 			x.new_b_add.setLocationRelativeTo(null);
 			x.new_b_add.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 		x.new_b_add.setVisible(true);

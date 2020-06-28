@@ -16,11 +16,9 @@ public class To_do_element{
 
 
 /*
-napraw b_add
 po klikniecu button_list uzycie b add
-klikanie na eventy zliczanie
 
-procenty
+zabezpiczenie interval
 daty
 zrob wyglad
 brak powiekszania ekranu

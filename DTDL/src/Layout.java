@@ -1,6 +1,8 @@
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JPanel;
 import javax.swing.JFrame;
@@ -9,33 +11,40 @@ import javax.swing.JButton;
 
 public class Layout extends JFrame implements ActionListener{
 	
+	To_do list;
 	
 	public Layout()
 	{
+		list = new To_do ();
+		
 		//window
-		setSize(1000,600);
+		setSize(1005,600);
 		setTitle("DTDL");
 		setLayout(null);
 		
 		//menubar
-		Menubar menu = new Menubar();
+		Menubar menu = new Menubar(list);
 		setJMenuBar(menu);  
 		
 		//buttons
 		JButton button_add = new JButton("+");
-		button_add.setBounds(910, 470, 50, 50);
+		button_add.setBounds(920, 10, 60, 40);
 		add(button_add);
 		button_add.addActionListener(this);
 		
 		//other
-		To_do list = new To_do ();
 		add(list.list1);
 		add(list.list2);
+		add(list.list3);
+		add(list.list4);
+		add(list.list5);
 		
-		
-		list.add_task (new To_do_element("nazwa", "1", 2, 3) ); //test
-		list.add_task (new To_do_element("nazwa2", "2", 3, 4) ); //test
-		list.add_task (new To_do_element("nazwa3", "1", 1 , 3) ); //test
+		list.add_task (new To_do_element("nazwa", "1", 1, 3) ); //test
+		list.add_task (new To_do_element("nazwa2", "2", 5, 4) ); //test
+		list.add_task (new To_do_element("nazwa3", "1", 3 , 3) ); //test
+		list.add_task (new To_do_element("nazwa", "1", 1, 3) ); //test
+		list.add_task (new To_do_element("nazwa2", "2", 5, 4) ); //test
+		list.add_task (new To_do_element("nazwa3", "1", 3 , 3) ); //test
 		
 
 		
@@ -44,7 +53,7 @@ public class Layout extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-		b_add x = new b_add();
+		b_add x = new b_add(list);
 		x.new_b_add.setLocationRelativeTo(null);
 		x.new_b_add.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		x.new_b_add.setVisible(true);
@@ -57,10 +66,7 @@ public class Layout extends JFrame implements ActionListener{
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		win.setVisible(true);
  		
- 		
- 		
- 		
-		
+
 	}
 	
 	
