@@ -16,12 +16,11 @@ public class To_do_element{
 
 
 /*
-po klikniecu button_list uzycie b add
+po klikniecu button_list uzycie b add do edycji 
 
 zabezpiczenie interval
 daty
 zrob wyglad
-brak powiekszania ekranu
 suwaki
 zapisywnie
 menubar

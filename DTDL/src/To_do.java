@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class To_do {
 	
@@ -53,15 +54,15 @@ public class To_do {
 		list5.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		list5.setLayout(null);
 		
-	//	JScrollBar scroll = new JScrollBar(JScrollBar.VERTICAL, 10, 440, 10, 100);
+	//	JScrollPane scroll = new JScrollPane();
+	//	scroll.setBounds(10, 10, 100, 100);
 		//list3.add(scroll);
 				
 	}
-	
 	void add_task (To_do_element task)
 	{		
 		//button
-		var btask = new b_task(task);
+		var btask = new b_task(task, this);
 		button_list.add(btask);		
 		list1.add(btask.b);
 		

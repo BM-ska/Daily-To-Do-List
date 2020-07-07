@@ -18,12 +18,12 @@ public class b_add implements ActionListener{
 	JTextField text_name;
 	JTextField text_interval;
 	JComboBox type;
-	JButton button_add;
+	JButton button_add, button_add_irregular;
 	
 	To_do to_do;
 
 	
-	public b_add(To_do to_do)
+	public b_add(To_do to_do, String name, String interval)
 	{
 		this.to_do = to_do;
 		
@@ -33,6 +33,7 @@ public class b_add implements ActionListener{
 		new_b_add.setSize(240,335);
 		new_b_add.setTitle("add element");
 		new_b_add.setLayout(null);
+		new_b_add.setResizable(false);
 		
 		//panele
 		JPanel p_name = new JPanel();
@@ -45,7 +46,7 @@ public class b_add implements ActionListener{
 		p_name.setBorder(BorderFactory.createTitledBorder("Name:"));
 		p_name.setLayout(null);
 		
-		text_name = new JTextField("");
+		text_name = new JTextField(name);
 		text_name.setBounds(10, 14, 185, 30);                                                          
 		p_name.add(text_name);
 		
@@ -61,8 +62,8 @@ public class b_add implements ActionListener{
 		p_interval.setBorder(BorderFactory.createTitledBorder("Interval:"));
 		p_interval.setLayout(null);
 		
-		text_interval = new JTextField("");
-		text_interval.setBounds(18, 135, 185, 30);                                                          
+		text_interval = new JTextField(interval);
+		text_interval.setBounds(18, 135, 185, 30);     
 		new_b_add.add(text_interval);
 //!!		
 		
@@ -80,27 +81,21 @@ public class b_add implements ActionListener{
 		
 		//add
 		button_add = new JButton("add");
-		button_add.setBounds(10, 230, 200, 50);
+		button_add.setBounds(10, 230, 100, 50);
 		button_add.addActionListener(this);
 		
+		//add irregular
+		button_add_irregular = new JButton("irregular");
+		button_add_irregular.setBounds(115, 230, 100, 50);
+		button_add_irregular.addActionListener(this);
 		
 		new_b_add.add(p_name);
 		new_b_add.add(p_date);
 		new_b_add.add(p_interval);
 		new_b_add.add(p_type);
 		new_b_add.add(button_add);
+		new_b_add.add(button_add_irregular);
 	}
-	
-	void wypisz() //do testowania
-	{
-		for(int i = 0; i < to_do.task_list.size(); i++)
-		{
-			System.out.println(to_do.task_list.get(i).name +" "+ to_do.task_list.get(i).date +" "+ to_do.task_list.get(i).interval + " "+to_do.task_list.get(i).type);
-		}
-			
-		
-	}
-	
 	public void actionPerformed(ActionEvent e)
 	{
 		Object z = e.getSource();
@@ -124,9 +119,23 @@ public class b_add implements ActionListener{
 			
 			to_do.add_task(new_element);
 			
-		//	wypisz(); //do testowania
 			new_b_add.dispose();
-		//	System.out.println(to_do.task_list.size()); // test
+		}
+		if (z == button_add_irregular) //tak samo ale bez interwalu
+		{
+			a = text_name.getText();
+			c = -1;
+			
+			String x = type.getSelectedItem().toString();
+			if(x == "event")
+				d = 1;
+			
+			To_do_element new_element = new To_do_element(a, b, c, d);
+			
+			
+			to_do.add_task(new_element);
+			
+			new_b_add.dispose();
 		}
 		
 		

@@ -1,8 +1,7 @@
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JPanel;
 import javax.swing.JFrame;
@@ -21,9 +20,10 @@ public class Layout extends JFrame implements ActionListener{
 		setSize(1005,600);
 		setTitle("DTDL");
 		setLayout(null);
+		setResizable(false);
 		
 		//menubar
-		Menubar menu = new Menubar(list);
+		Menubar menu = Menubar.create_instance(list);
 		setJMenuBar(menu);  
 		
 		//buttons
@@ -53,7 +53,7 @@ public class Layout extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e)
 	{
-		b_add x = new b_add(list);
+		b_add x = new b_add(list, "", "");
 		x.new_b_add.setLocationRelativeTo(null);
 		x.new_b_add.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		x.new_b_add.setVisible(true);
@@ -66,7 +66,7 @@ public class Layout extends JFrame implements ActionListener{
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  		win.setVisible(true);
  		
-
+ 		
 	}
 	
 	
